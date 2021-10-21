@@ -1,0 +1,25 @@
+{
+  "name": "emerchantpay",
+  "version": "1.0.0",
+  "description": "eMerchantPay Task Implementation",
+  "main": "index.js",
+  "author": "Zlatin Hristov <zlatin.hristov@devop.studio>",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "bootstrap": "4.6",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "css-loader": "^6.4.0",
+    "mini-css-extract-plugin": "^2.4.2",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^12.2.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.59.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/webpack"
+  }
+}

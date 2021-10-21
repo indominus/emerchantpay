@@ -1,0 +1,10 @@
+.env
+!/app/logs/.gitkeep
+/app/logs/
+!/app/cache/.gitkeep
+/app/cache/
+/vendor/
+/node_modules/
+/public/build
+!/public/uploads/.gitkeep
+/public/uploads

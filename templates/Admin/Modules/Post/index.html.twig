@@ -1,0 +1,56 @@
+{% extends "Admin/layout.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="btn-toolbar justify-content-end my-3">
+                <a href="{{ path_for('posts_create') }}" class="btn btn-primary">Create new</a>
+            </div>
+            <div class="table-responsive mt-3">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Feature image</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Created At</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in posts %}
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.username }}</td>
+                            <td>
+                                {% if item.media %}
+                                    <img src="{{ base_url() ~ '/uploads/' ~ item.media }}" title="{{ item.title }}"
+                                         class="img-thumbnail preview-image" alt="{{ item.title }}"/>
+                                {% endif %}
+                            </td>
+                            <td>{{ item.title }}</td>
+                            <td>{{ item.created_at|date('d.m.Y H:i') }}</td>
+                            <td>
+                                <a class="btn btn-sm btn-primary"
+                                   href="{{ path_for('posts_update', {'id': item.id}) }}">
+                                    редактирай
+                                </a>
+                                <button class="btn btn-sm btn-delete btn-danger"
+                                        data-url="{{ path_for('posts_update', {'id': item.id}) }}">
+                                    изтрий
+                                </button>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="6" class="text-center">Empty posts</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock body %}
